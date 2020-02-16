@@ -6,5 +6,5 @@ export const UsersSchema = new Schema({
   state: { type: Number, default: 1 },
   registerAt: { type: Date, default: Date.now },
   typeUser: { type: Number, required: true },
-  personalInformation: Number,
+  pInformationID: Number,
 });

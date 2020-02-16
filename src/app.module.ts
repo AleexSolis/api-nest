@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AppointmentsModule } from './appointments/appointments.module';
+import { PInformationModule } from './p-information/p-information.module';
 
 @Module({
   imports: [
@@ -11,6 +13,8 @@ import { MongooseModule } from '@nestjs/mongoose';
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
+    AppointmentsModule,
+    PInformationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -29,7 +29,7 @@ export class UsersController {
   @Get('/:id')
   async getUserID(@Res() res, @Param('id') id) {
     const user = await this.usersService.getUser(id);
-    if (!user) throw new NotFoundException('User does not exists');
+    if (!user) throw new NotFoundException('User Does Not Exist');
     return res.status(HttpStatus.OK).json({
       user,
     });
@@ -44,13 +44,9 @@ export class UsersController {
     });
   }
 
-  @Put('/update/:userID')
-  async update(
-    @Res() res,
-    @Param('userID') userID,
-    @Body() usersDTO: UsersDTO,
-  ) {
-    const user = await this.usersService.updateUser(userID, usersDTO);
+  @Put('/update/:id')
+  async update(@Res() res, @Param('id') id, @Body() usersDTO: UsersDTO) {
+    const user = await this.usersService.updateUser(id, usersDTO);
     res.status(HttpStatus.OK).json({
       message: 'User Updated Successfully',
       user,
@@ -60,7 +56,7 @@ export class UsersController {
   @Delete('/delete/:id')
   async deleteUserID(@Res() res, @Param('id') id) {
     const user = await this.usersService.deleteUser(id);
-    if (!user) throw new NotFoundException('User does not exists');
+    if (!user) throw new NotFoundException('User Does Not Exist');
     return res.status(HttpStatus.OK).json({
       message: 'User Deleted Successfully',
       user,

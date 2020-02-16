@@ -26,17 +26,15 @@ export class UsersService {
     return newUser;
   }
 
-  async updateUser(userID: string, userDTO: UsersDTO): Promise<Users> {
-    const userUpdate = await this.usersModel.findByIdAndUpdate(
-      userID,
-      userDTO,
-      { new: true },
-    );
+  async updateUser(id: string, userDTO: UsersDTO): Promise<Users> {
+    const userUpdate = await this.usersModel.findByIdAndUpdate(id, userDTO, {
+      new: true,
+    });
     return userUpdate;
   }
 
-  async deleteUser(userID: string): Promise<Users> {
-    const userDelete = await this.usersModel.findByIdAndDelete(userID);
+  async deleteUser(id: string): Promise<Users> {
+    const userDelete = await this.usersModel.findByIdAndDelete(id);
     return userDelete;
   }
 }

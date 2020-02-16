@@ -4,5 +4,5 @@ export class UsersDTO {
   readonly state: number;
   readonly registerAt: Date;
   readonly typeUser: number;
-  readonly personalInformation: number;
+  readonly pInformationID: number;
 }
