@@ -17,11 +17,8 @@ export class UsersService {
     return users;
   }
 
-  async getClinician(): Promise<Users[]> {
-    const users = await this.usersModel.find({ typeUser: 2 });
-    users.forEach(user => {
-      console.log(user);
-    });
+  async getUsersByType(typeUser): Promise<Users[]> {
+    const users = await this.usersModel.find({ typeUser });
     return users;
   }
 

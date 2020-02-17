@@ -20,5 +20,11 @@ export const LeftBar = (
       </ListItemIcon>
       <ListItemText primary="Customers">Clinician</ListItemText>
     </ListItem>
+    <ListItem button component={Link} to="/patient">
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="Patient">Patient</ListItemText>
+    </ListItem>
   </div>
 );

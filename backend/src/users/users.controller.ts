@@ -20,9 +20,17 @@ export class UsersController {
 
   @Get('/clinician')
   async getClinician(@Res() res) {
-    const clinicians = await this.usersService.getClinician();
+    const clinicians = await this.usersService.getUsersByType(2);
     return res.status(HttpStatus.OK).json({
       clinicians,
+    });
+  }
+
+  @Get('/patient')
+  async getPatient(@Res() res) {
+    const patients = await this.usersService.getUsersByType(3);
+    return res.status(HttpStatus.OK).json({
+      patients,
     });
   }
 

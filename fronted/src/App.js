@@ -7,6 +7,7 @@ import RegisterSuper from "./components/register/RegisterSuper";
 import Register from "./components/register/Register";
 import Dashboard from "./components/Dashboard";
 import Clinician from "./components/Clinician";
+import Patient from "./components/Patient";
 import { getSuperadmin } from "./components/client-api/Users-cliente";
 
 export default class App extends Component {
@@ -40,6 +41,11 @@ export default class App extends Component {
           <Route exact path="/clinician">
             <Navigation>
               <Clinician />
+            </Navigation>
+          </Route>
+          <Route exact path="/patient">
+            <Navigation>
+              <Patient />
             </Navigation>
           </Route>
         </Switch>
