@@ -91,7 +91,7 @@ export default function Dashboard() {
             format="MM/dd/yyyy"
             margin="normal"
             id="date-picker-inline"
-            label="Start time"
+            label="Date"
             value={dateStart}
             onChange={handleDateChange}
             KeyboardButtonProps={{
@@ -101,7 +101,7 @@ export default function Dashboard() {
           <KeyboardTimePicker
             margin="normal"
             id="time-picker"
-            label="Finish time"
+            label="Start time"
             value={dateStart}
             onChange={handleDateChangeStart}
             KeyboardButtonProps={{
@@ -111,7 +111,7 @@ export default function Dashboard() {
           <KeyboardTimePicker
             margin="normal"
             id="time-picker"
-            label="Time picker"
+            label="Finish time"
             value={dateFinish}
             onChange={handleDateChangeFinish}
             KeyboardButtonProps={{
