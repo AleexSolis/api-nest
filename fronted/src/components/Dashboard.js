@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
 import Calendar from "@toast-ui/react-calendar";
 import Container from "@material-ui/core/Container";
 import DateFnsUtils from "@date-io/date-fns";
-import ArrowIcon from "@material-ui/icons/ArrowRightAltOutlined";
+import SaveIcon from '@material-ui/icons/Save';
 import Grid from "@material-ui/core/Grid";
 import {
   MuiPickersUtilsProvider,
@@ -20,10 +21,22 @@ import {
 import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
 
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    background: "#3f51b5",
+    color: "white",
+    '&:hover': {
+      background: "#283371",
+   },
+  },
+}));
+
 export default function Dashboard() {
   const [dateStart, setDateStart] = React.useState(new Date());
   const [dateFinish, setDateFinish] = React.useState(new Date());
   const [schedules, setSchedules] = React.useState({});
+  const classes = useStyles();
 
   const handleDateChange = date => {
     setDateStart(date);
@@ -107,11 +120,12 @@ export default function Dashboard() {
           />
           <IconButton
             title="Save appointment"
+            className={classes.button}
             aria-label="Send"
-            size="medium"
+            size="large"
             onClick={handleButtonClick}
           >
-            <ArrowIcon />
+            <SaveIcon  />
           </IconButton>
         </Grid>
       </MuiPickersUtilsProvider>
