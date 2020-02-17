@@ -1,5 +1,7 @@
 import axios from "axios";
 import { getPInformationByID } from "./PINformation-client";
+import { createUser } from "./Users-cliente";
+import { createPInformation } from "./PINformation-client";
 export let cliniciansG = [];
 
 export const getClinician = async () => {
@@ -26,6 +28,14 @@ export const getClinician = async () => {
 const getPInformation = async pInformationID => {
   const pInformation = await getPInformationByID(pInformationID);
   return pInformation;
+};
+
+export const createClinician = async newClinician => {
+  const pInformation = await createPInformation(newClinician);
+  newClinician.pInformationID = pInformation.pInformation._id;
+  const user = await createUser(newClinician, 2);
+  if (!user) return false;
+  return user.data;
 };
 
 export const updateClinician = async (state, id) => {

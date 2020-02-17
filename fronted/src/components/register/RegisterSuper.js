@@ -81,7 +81,7 @@ function SignUp(props) {
                 name="password"
                 type="password"
                 onChange={handleChange}
-                values={values.user}
+                values={values.password}
                 error={errors.password ? true : false}
                 helperText={errors.password}
                 fullWidth
@@ -96,7 +96,7 @@ function SignUp(props) {
                 name="passwordConfirmation"
                 type="password"
                 onChange={handleChange}
-                values={values.user}
+                values={values.passwordConfirmation}
                 error={errors.password ? true : false}
                 helperText={errors.password}
                 fullWidth
