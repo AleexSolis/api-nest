@@ -1,6 +1,7 @@
 # Api Nest
 
  Tecnologias:
+ 
   *MongoDB
   *Nest.js
   *Mongoose
@@ -34,5 +35,5 @@
 ## Comenzando 🚀
 
 	Ir a carpeta Backend y en linea de comandos ejecutar start:dev
-  Ir a carpeta Fronted y en linea de comandos ejecutar yarn start
+	Ir a carpeta Fronted y en linea de comandos ejecutar yarn start
 
