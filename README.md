@@ -2,14 +2,13 @@
 
  Tecnologias:
  
-  *MongoDB
-  *Nest.js
-  *Mongoose
-  *React
-  *Material UI
-  *React Toast Calendar
-  *Axios
-  *Formik
+ 	*MongoDB
+	*Mongoose
+	*React
+	*Material UI
+	*React Toast Calendar
+	*Axios
+	*Formik
 
 ### Pre-requisitos 📋
 
