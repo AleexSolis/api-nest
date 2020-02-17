@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Calendar from "@toast-ui/react-calendar";
 import Container from "@material-ui/core/Container";
@@ -11,7 +11,10 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import "tui-calendar/dist/tui-calendar.css";
-import { createAppointment } from "./client-api/Appointments-client";
+import {
+  createAppointment,
+  getAppointments
+} from "./client-api/Appointments-client";
 
 // If you use the default popups, use this.
 import "tui-date-picker/dist/tui-date-picker.css";
@@ -20,6 +23,7 @@ import "tui-time-picker/dist/tui-time-picker.css";
 export default function Dashboard() {
   const [dateStart, setDateStart] = React.useState(new Date());
   const [dateFinish, setDateFinish] = React.useState(new Date());
+  const [schedules, setSchedules] = React.useState({});
 
   const handleDateChange = date => {
     setDateStart(date);
@@ -42,6 +46,21 @@ export default function Dashboard() {
       dateFinish: dateFinish
     });
   };
+
+  useEffect(() => {
+    const schedules = [];
+    getAppointments().then(appointments => {
+      appointments.forEach((appointment, index) =>
+        schedules.push({
+          id: index,
+          category: "time",
+          start: appointment.dateStart,
+          end: appointment.dateFinish
+        })
+      );
+      setSchedules(schedules);
+    });
+  }, []);
 
   return (
     <Container>
@@ -90,25 +109,7 @@ export default function Dashboard() {
           </IconButton>
         </Grid>
       </MuiPickersUtilsProvider>
-      <Calendar
-        schedules={[
-          {
-            id: "1",
-            title: "TOAST UI Calendar Study",
-            category: "time",
-            start: "2020-02-16T21:30:00+09:00",
-            end: "2020-02-16T22:30:00+09:00"
-          },
-          {
-            id: "2",
-            title: "Practice",
-            category: "time",
-            start: new Date(),
-            end: new Date(),
-            isReadOnly: true
-          }
-        ]}
-      ></Calendar>
+      <Calendar schedules={schedules}></Calendar>
     </Container>
   );
 }
