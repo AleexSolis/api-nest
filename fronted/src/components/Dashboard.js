@@ -151,7 +151,6 @@ export default function Dashboard() {
           Appointment saved
         </Alert>
       </Snackbar>
-      <Alert severity="success">This is a success message!</Alert>
     </Container>
   );
 }
