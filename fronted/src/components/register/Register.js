@@ -249,6 +249,6 @@ export default withFormik({
     if (!values.checked) createClinician(values);
     else createPatient(values);
     formikBag.setSubmitting(false);
-    //window.location.href = "/";
+    window.location.href = "/";
   }
 })(SignUp);
