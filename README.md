@@ -35,7 +35,7 @@
 
 	Ir a carpeta Backend por linea de comando:
 		Ejecutar npm install
-		Ejecutar start:dev
+		Ejecutar npm run start:dev
 	Ir a carpeta Frontend por linea de comando:
 		Ejecutar yarn install
 		Ejecutar yarn start
