@@ -3,6 +3,8 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Users } from './interfaces/users.interface';
 import { UsersDTO } from './dto/users.dto';
+import { PInformationService } from '../p-information/p-information.service';
+import { PInformation } from '../p-information/interfaces/p-information.interface';
 
 @Injectable()
 export class UsersService {
@@ -12,6 +14,14 @@ export class UsersService {
 
   async getUsers(): Promise<Users[]> {
     const users = await this.usersModel.find();
+    return users;
+  }
+
+  async getClinician(): Promise<Users[]> {
+    const users = await this.usersModel.find({ typeUser: 2 });
+    users.forEach(user => {
+      console.log(user);
+    });
     return users;
   }
 

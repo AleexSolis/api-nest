@@ -23,7 +23,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       <Link color="inherit" href="https://github.com/AleexSolis">
-        Made with <Emoji symbol="❤️" />
+        Made with <Emoji symbol="❤️" /> from 🇲🇽.
       </Link>
     </Typography>
   );

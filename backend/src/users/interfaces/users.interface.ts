@@ -6,5 +6,5 @@ export interface Users extends Document {
   readonly state: number;
   readonly registerAt: Date;
   readonly typeUser: number;
-  readonly pInformationID: number;
+  readonly pInformationID: string;
 }

@@ -18,6 +18,14 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
+  @Get('/clinician')
+  async getClinician(@Res() res) {
+    const clinicians = await this.usersService.getClinician();
+    return res.status(HttpStatus.OK).json({
+      clinicians,
+    });
+  }
+
   @Get('/')
   async getUsers(@Res() res) {
     const users = await this.usersService.getUsers();

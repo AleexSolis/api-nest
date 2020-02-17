@@ -12,9 +12,7 @@ export const LeftBar = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard">
-        <Link to="/Clinician">Clinician</Link>
-      </ListItemText>
+      <ListItemText primary="Dashboard">Dashboard</ListItemText>
     </ListItem>
     <ListItem button component={Link} to="/clinician">
       <ListItemIcon>
