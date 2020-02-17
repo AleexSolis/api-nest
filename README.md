@@ -23,7 +23,7 @@
       { id: 3, description: 'disabled' },
     ]);
 
-    db.createCollection('typeusers ');
+    db.createCollection('typeusers');
     db.typeusers.insert([
       { description: 'superadmin', id: 1 },
       { description: 'clinician', id: 2 },
