@@ -12,7 +12,7 @@
 
 ### Pre-requisitos 📋
 
-	Es necesario Node.Js, y MongoDB.
+	Es necesario Node.Js y MongoDB.
   Crear DB en mongo y cambiar los datos necesarios en api-nest\backend\src.
   Despues crear e insertar Catalogos.
   
