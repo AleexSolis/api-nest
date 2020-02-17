@@ -4,8 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Calendar from "@toast-ui/react-calendar";
 import Container from "@material-ui/core/Container";
 import DateFnsUtils from "@date-io/date-fns";
-import SaveIcon from '@material-ui/icons/Save';
+import SaveIcon from "@material-ui/icons/Save";
 import Grid from "@material-ui/core/Grid";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -26,17 +28,30 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     background: "#3f51b5",
     color: "white",
-    '&:hover': {
-      background: "#283371",
-   },
-  },
+    "&:hover": {
+      background: "#283371"
+    }
+  }
 }));
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function Dashboard() {
   const [dateStart, setDateStart] = React.useState(new Date());
   const [dateFinish, setDateFinish] = React.useState(new Date());
   const [schedules, setSchedules] = React.useState({});
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleDateChange = date => {
     setDateStart(date);
@@ -59,10 +74,11 @@ export default function Dashboard() {
       dateFinish: dateFinish
     }).then(() => {
       loadSchedules();
+      setOpen(true);
     });
   };
 
-  const loadSchedules = () =>{
+  const loadSchedules = () => {
     const schedules = [];
     getAppointments().then(appointments => {
       appointments.forEach((appointment, index) =>
@@ -75,7 +91,7 @@ export default function Dashboard() {
       );
       setSchedules(schedules);
     });
-  }
+  };
 
   useEffect(() => {
     loadSchedules();
@@ -125,11 +141,17 @@ export default function Dashboard() {
             size="large"
             onClick={handleButtonClick}
           >
-            <SaveIcon  />
+            <SaveIcon />
           </IconButton>
         </Grid>
       </MuiPickersUtilsProvider>
       <Calendar schedules={schedules}></Calendar>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          Appointment saved
+        </Alert>
+      </Snackbar>
+      <Alert severity="success">This is a success message!</Alert>
     </Container>
   );
 }
