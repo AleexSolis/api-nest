@@ -34,6 +34,10 @@
 	
 ## Comenzando 🚀
 
-	Ir a carpeta Backend y en linea de comandos ejecutar start:dev
-	Ir a carpeta Fronted y en linea de comandos ejecutar yarn start
+	Ir a carpeta Backend por linea de comando:
+		Ejecutar npm install
+		Ejecutar start:dev
+	Ir a carpeta Frontend por linea de comando:
+		Ejecutar yarn install
+		Ejecutar yarn start
 
