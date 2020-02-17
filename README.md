@@ -6,6 +6,7 @@
 	*Mongoose
 	*React
 	*Material UI
+	*Material-table
 	*React Toast Calendar
 	*Axios
 	*Formik
