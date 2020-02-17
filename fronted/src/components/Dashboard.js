@@ -44,10 +44,12 @@ export default function Dashboard() {
       pInformationIDPatient: "5e4a087763d59c69bc064e9f",
       dateStart: dateStart,
       dateFinish: dateFinish
+    }).then(() => {
+      loadSchedules();
     });
   };
 
-  useEffect(() => {
+  const loadSchedules = () =>{
     const schedules = [];
     getAppointments().then(appointments => {
       appointments.forEach((appointment, index) =>
@@ -60,6 +62,10 @@ export default function Dashboard() {
       );
       setSchedules(schedules);
     });
+  }
+
+  useEffect(() => {
+    loadSchedules();
   }, []);
 
   return (
